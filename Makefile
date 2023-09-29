@@ -6,7 +6,7 @@
 #    By: laafilal <laafilal@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/25 17:37:44 by laafilal          #+#    #+#              #
-#    Updated: 2023/09/18 22:37:57 by laafilal         ###   ########.fr        #
+#    Updated: 2023/09/29 15:57:45 by laafilal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,11 +42,13 @@ ifeq ($(OS), $(filter $(OS), Linux Darwin))
 	ifeq ($(OS),Linux)
 		IDIR = -I./libft -I./get_next_line -I$(MPATH) -I. -I.. -I/usr/include
 		LIBS = -L./libft -lft -L./get_next_line -lgnl -L./mlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz 
-		T = ./mlx_linux/libmlx.a
+		MLX_LIB = ./mlx_linux/libmlx.a
+		MLX_FOLDER = mlx_linux 
 	else ifeq ($(OS),Darwin)
-		IDIR = -I./libft -I./get_next_line -I./mandatory -I/bonus -I.  -I.. -I /usr/local/include
-		LIBS = -L./libft -lft -L./get_next_line -lgnl -L /usr/lib/  -lmlx -framework OpenGL -framework AppKit ./mlx/libmlx.dylib
-		T = ./mlx/libmlx.dylib
+		IDIR = -I./libft -I./get_next_line -I./mlx -I$(MPATH) -I.  -I.. -I /usr/local/include
+		LIBS = -L./libft -lft -L./get_next_line -lgnl -L /usr/lib/ -L./mlx -lmlx -framework OpenGL -framework AppKit ./mlx/libmlx.dylib
+		MLX_LIB = ./mlx/libmlx.dylib
+		MLX_FOLDER = mlx 
 	endif
 all: $(NAME)
 clean:
@@ -54,7 +56,7 @@ clean:
 	cd bonus && /bin/rm -f *.o
 	cd libft && $(MAKE) clean
 	cd get_next_line && $(MAKE) clean
-	cd mlx_linux && $(MAKE) clean
+	cd $(MLX_FOLDER) && $(MAKE) clean
 
 fclean: clean
 	/bin/rm -f $(NAME)
@@ -76,7 +78,7 @@ fclean :
 endif
 
 
-$(NAME): $(HEADER) $(addprefix $(MPATH)/,$(SUBOBJS))| ./get_next_line/libgnl.a $(T)
+$(NAME): $(HEADER) $(addprefix $(MPATH)/,$(SUBOBJS))| ./get_next_line/libgnl.a $(MLX_LIB)
 	$(CC) $(CFLAGS) $(IDIR) $(MSRC) -o $(NAME) $(addprefix $(MPATH)/,$(SUBOBJS)) $(LIBS)
 
 $(addprefix $(MPATH)/,$(SUBOBJS)):
