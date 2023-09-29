@@ -6,15 +6,17 @@
 /*   By: laafilal <laafilal@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 18:56:30 by laafilal          #+#    #+#             */
-/*   Updated: 2023/09/18 22:45:50 by laafilal         ###   ########.fr       */
+/*   Updated: 2023/09/29 15:53:38 by laafilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_BONUS_H
 # define CUB3D_BONUS_H
 # include <errmsg_bonus.h>
-# include <X11/Xlib.h>
-# include <X11/X.h>
+# ifdef __linux__
+#  include <X11/Xlib.h>
+#  include <X11/X.h>
+# endif
 # include <libft.h>
 # include <get_next_line.h>
 # include <mlx.h>
