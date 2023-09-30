@@ -26,10 +26,16 @@
 # include <fcntl.h>
 # include <math.h>
 
+# define KEYPRESS        2
+# define KEYRELEASE      3
+# define DESTROYNOTIFY       17
+# define MAX_NUM 2147483647
+# define SCREENSHOT_NAME "screenshot.bmp"
+# define TILE_SIZE 64
+# define WIN_TITLE "cub3D"
+# define SHADE_RANGE 2000
+
 # if defined(__linux__)
-#  define KEYPRESS        2
-#  define KEYRELEASE      3
-#  define DESTROYNOTIFY       17
 #  define WALK 119
 #  define BACK 115
 #  define RIGHT 100
@@ -37,15 +43,7 @@
 #  define TURNLEFT 65361
 #  define TURNRIGHT 65363
 #  define ESC 65307
-#  define MAX_NUM 2147483647
-#  define SCREENSHOT_NAME "screenshot.bmp"
-#  define TILE_SIZE 64
-#  define WIN_TITLE "cub3D"
-#  define SHADE_RANGE 1500
 # else
-#  define KEYPRESS        2
-#  define KEYRELEASE      3
-#  define DESTROYNOTIFY       17
 #  define WALK 13
 #  define BACK 1
 #  define RIGHT 2
@@ -53,11 +51,6 @@
 #  define TURNLEFT 123
 #  define TURNRIGHT 124
 #  define ESC 53
-#  define MAX_NUM 2147483647
-#  define SCREENSHOT_NAME "screenshot.bmp"
-#  define TILE_SIZE 64
-#  define WIN_TITLE "cub3D"
-#  define SHADE_RANGE 1500
 # endif
 
 
