@@ -49,3 +49,6 @@ You can run cub3D with the following command:
 - Use the `W`, `A`, `S`, and `D` keys to move forward, left, backward, and right, respectively.
 - Rotate the camera with the arrow keys :arrow_left: :arrow_right:.
 
+## Bonus
+- Distance-related shadow effects.
+- Walls/objects collisions to prevent the player from walking through walls.
