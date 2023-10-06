@@ -42,3 +42,5 @@ You can run cub3D with the following command:
 ```
 ./cub3D path-map-file.cub
 ```
+### Options
+- `--save`: Take a screenshot of the current frame and save it as `screenshot.bmp`.
