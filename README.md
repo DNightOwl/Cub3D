@@ -22,3 +22,23 @@ The makefile can detect the currently running operating system and will compile 
     ```
     sudo apt-get update && sudo apt-get install xorg libxext-dev zlib1g-dev libbsd-dev
     ```
+
+### Compilation
+1. Clone this repository to your local machine.
+   ```
+   git clone https://github.com/DNightOwl/Cub3D.git
+   ```
+   ```
+    cd cub3D
+   ```
+
+
+3. Build the project by running `make`.
+
+   make
+
+### Running cub3D
+You can run cub3D with the following command:
+```
+./cub3D path-map-file.cub
+```
